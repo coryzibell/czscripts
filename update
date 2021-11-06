@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Create an associative array of various update commands and their descriptions
 declare -A commands=(
 	["pacman and AUR"]="paru -Syyu"
 	["flatpak"]="flatpak update"
@@ -8,9 +9,11 @@ declare -A commands=(
 	["opam"]="opam update && opam upgrade"
 )
 
+# Set up some display and loop variables
 commands_length="${#commands[@]}"
 loop_index=1
 
+# Loop through each update command, output its index in the list of commands and execute
 for command in "${!commands[@]}";
 	do
 		printf "[${loop_index}/${commands_length}] Updating ${command}.\n";
