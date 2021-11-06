@@ -1,0 +1,19 @@
+#!/bin/bash
+
+declare -A commands=(
+	["pacman and AUR"]="paru -Syyu"
+	["flatpak"]="flatpak update"
+	["snap"]="sudo snap refresh"
+	["npm"]="npm -g update"
+	["zzz opam"]="opam update && opam upgrade"
+)
+
+commands_length="${#commands[@]}"
+loop_index=1
+
+for command in "${!commands[@]}";
+	do
+		printf "[${loop_index}/${commands_length}] Updating ${command}.\n";
+		eval ${commands[$command]};
+		let "loop_index+=1";
+	done;
