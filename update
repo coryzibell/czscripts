@@ -5,7 +5,7 @@ declare -A commands=(
 	["flatpak"]="flatpak update"
 	["snap"]="sudo snap refresh"
 	["npm"]="npm -g update"
-	["zzz opam"]="opam update && opam upgrade"
+	["opam"]="opam update && opam upgrade"
 )
 
 commands_length="${#commands[@]}"
